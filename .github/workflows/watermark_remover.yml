@@ -46,8 +46,8 @@ jobs:
         run: |
           eval "$(conda shell.bash hook)"
           conda activate py312aiwatermark
-          bash setup.sh INPUT OUTPUT
-          
+          bash setup.sh
+
       # Step 6: Download the LaMA model
       - name: Download LaMA Model
         run: |
