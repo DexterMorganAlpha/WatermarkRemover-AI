@@ -2,3 +2,4 @@ iopaint
 transformers
 opencv-python-headless
 PyQt6
+Pillow>=10.0.0
