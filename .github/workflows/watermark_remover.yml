@@ -1,9 +1,6 @@
 name: Watermark Remover Setup
 
 on:
-  push:
-    branches:
-      - main
   workflow_dispatch:
 
 jobs:
