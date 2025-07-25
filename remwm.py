@@ -4,7 +4,6 @@ from pathlib import Path
 import cv2
 import numpy as np
 from PIL import Image, ImageDraw
-import iopaint
 from transformers import AutoProcessor, AutoModelForCausalLM
 from iopaint.model_manager import ModelManager
 from iopaint.schema import HDStrategy, LDMSampler, InpaintRequest as Config
@@ -168,7 +167,6 @@ def main(input_path: str, output_path: str, overwrite: bool, transparent: bool, 
         print(f"input_path:{input_path}, output_path:{output_file}, overall_progress:100")
 
 if __name__ == "__main__":
-    iopaint.download("lama")
     INPUT_PATH="INPUT/watermark.jpg"
     OUTPUT_PATH="OUTPUT/watermark_removed.jpg"
     main(INPUT_PATH, OUTPUT_PATH, overwrite=False, transparent=False, max_bbox_percent=60.0)
