@@ -1,0 +1,47 @@
+name: Watermark Remover Setup
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  setup-watermark-remover:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Checkout the repository
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      # Step 2: Install Conda
+      - name: Install Miniconda
+        uses: conda-incubator/setup-miniconda@v2
+        with:
+          auto-update-conda: true
+          python-version: 3.12
+
+      # Step 3: Create and activate the environment
+      - name: Create and Activate Conda Environment
+        run: |
+          conda create -n py312aiwatermark python=3.12 -y
+          conda activate py312aiwatermark
+
+      # Step 4: Run the setup script
+      - name: Run Setup Script
+        run: bash setup.sh
+
+      # Step 5: Download the LaMA model
+      - name: Download LaMA Model
+        run: |
+          conda activate py312aiwatermark
+          iopaint download --model lama
+
+      # Step 6: Provide CLI usage example
+      - name: CLI Usage Example
+        run: |
+          echo "To use the CLI, run the following command:"
+          echo "./setup.sh input_path output_path [options]"
+          echo "Example:"
+          echo "./setup.sh ./input_images ./output_images --overwrite --transparent"
