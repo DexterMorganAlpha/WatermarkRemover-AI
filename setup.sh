@@ -121,8 +121,10 @@ pip list | grep -q PyQt6 || pip install PyQt6
 pip list | grep -q transformers || pip install transformers
 pip list | grep -q iopaint || pip install iopaint
 pip list | grep -q opencv-python-headless || pip install opencv-python-headless
+# Define paths relative to the script's directory
+SCRIPT_DIR=$(dirname "$0")
+INPUT_PATH="$SCRIPT_DIR/INPUT/watermark.jpg"
+OUTPUT_PATH="$SCRIPT_DIR/OUTPUT/watermark_removed.jpg"
 
-# Run remwm.py with passed arguments
-INPUT_PATH = "INPUT/watermark.jpg"
-OUTPUT_PATH = "OUTPUT/watermark_removed.jpg"
+# Run remwm.py with the defined paths
 python remwm.py "$INPUT_PATH" "$OUTPUT_PATH"
