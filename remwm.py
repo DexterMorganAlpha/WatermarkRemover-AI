@@ -92,13 +92,13 @@ def make_region_transparent(image: Image.Image, mask: Image.Image):
                 transparent_image.putpixel((x, y), image.getpixel((x, y)))
     return transparent_image
 
-@click.command()
-@click.argument("input_path", type=click.Path(exists=True))
-@click.argument("output_path", type=click.Path())
-@click.option("--overwrite", is_flag=True, help="Overwrite existing files in bulk mode.")
-@click.option("--transparent", is_flag=True, help="Make watermark regions transparent instead of removing.")
-@click.option("--max-bbox-percent", default=10.0, help="Maximum percentage of the image that a bounding box can cover.")
-@click.option("--force-format", type=click.Choice(["PNG", "WEBP", "JPG"], case_sensitive=False), default=None, help="Force output format. Defaults to input format.")
+# @click.command()
+# @click.argument("input_path", type=click.Path(exists=True))
+# @click.argument("output_path", type=click.Path())
+# @click.option("--overwrite", is_flag=True, help="Overwrite existing files in bulk mode.")
+# @click.option("--transparent", is_flag=True, help="Make watermark regions transparent instead of removing.")
+# @click.option("--max-bbox-percent", default=10.0, help="Maximum percentage of the image that a bounding box can cover.")
+# @click.option("--force-format", type=click.Choice(["PNG", "WEBP", "JPG"], case_sensitive=False), default=None, help="Force output format. Defaults to input format.")
 def main(input_path: str, output_path: str, overwrite: bool, transparent: bool, max_bbox_percent: float, force_format: str):
     input_path = Path(input_path)
     output_path = Path(output_path)
@@ -169,4 +169,4 @@ def main(input_path: str, output_path: str, overwrite: bool, transparent: bool, 
 if __name__ == "__main__":
     INPUT_PATH="INPUT/watermark.jpg"
     OUTPUT_PATH="OUTPUT/watermark_removed.jpg"
-    main(INPUT_PATH, OUTPUT_PATH, overwrite=False, transparent=False, max_bbox_percent=60.0)
+    main(INPUT_PATH, OUTPUT_PATH, False, False, 60.0)
