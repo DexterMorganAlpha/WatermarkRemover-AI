@@ -125,6 +125,6 @@ pip list | grep -q opencv-python-headless || pip install opencv-python-headless
 SCRIPT_DIR=$(dirname "$0")
 INPUT_PATH="$SCRIPT_DIR/INPUT/watermark.jpg"
 OUTPUT_PATH="$SCRIPT_DIR/OUTPUT/watermark_removed.jpg"
-
+iopaint download --model lama
 # Run remwm.py with the defined paths
 python remwm.py "$INPUT_PATH" "$OUTPUT_PATH"
