@@ -122,5 +122,12 @@ pip list | grep -q transformers || pip install transformers
 pip list | grep -q iopaint || pip install iopaint
 pip list | grep -q opencv-python-headless || pip install opencv-python-headless
 
+# Check if required arguments are provided
+if [ "${#SCRIPT_ARGS[@]}" -lt 2 ]; then
+    echo "Error: Missing required arguments 'INPUT_PATH' and 'OUTPUT_PATH'."
+    echo "Usage: $0 [options] -- [INPUT_PATH] [OUTPUT_PATH] [additional options]"
+    exit 1
+fi
+
 # Run remwm.py with passed arguments
 python remwm.py "${SCRIPT_ARGS[@]}"
