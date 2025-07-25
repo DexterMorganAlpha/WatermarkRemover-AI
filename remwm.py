@@ -167,4 +167,7 @@ def main(input_path: str, output_path: str, overwrite: bool, transparent: bool, 
         print(f"input_path:{input_path}, output_path:{output_file}, overall_progress:100")
 
 if __name__ == "__main__":
-    main()
+    iopaint.download("lama")
+    INPUT_PATH="INPUT/watermark.jpg"
+    OUTPUT_PATH="OUTPUT/watermark_removed.jpg"
+    main(INPUT_PATH, OUTPUT_PATH, overwrite=False, transparent=False, max_bbox_percent=60.0)
