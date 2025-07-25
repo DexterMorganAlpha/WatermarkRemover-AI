@@ -169,4 +169,4 @@ def main(input_path: str, output_path: str, overwrite: bool, transparent: bool, 
 if __name__ == "__main__":
     INPUT_PATH="INPUT/watermark.jpg"
     OUTPUT_PATH="OUTPUT/watermark_removed.jpg"
-    main(INPUT_PATH, OUTPUT_PATH, False, False, 60.0)
+    main(INPUT_PATH, OUTPUT_PATH, False, False, 60.0, "JPG")
