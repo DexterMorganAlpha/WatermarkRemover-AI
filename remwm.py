@@ -4,6 +4,7 @@ from pathlib import Path
 import cv2
 import numpy as np
 from PIL import Image, ImageDraw
+import iopaint
 from transformers import AutoProcessor, AutoModelForCausalLM
 from iopaint.model_manager import ModelManager
 from iopaint.schema import HDStrategy, LDMSampler, InpaintRequest as Config
