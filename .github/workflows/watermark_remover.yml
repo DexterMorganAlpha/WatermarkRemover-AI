@@ -28,28 +28,34 @@ jobs:
           eval "$(conda shell.bash hook)"
           conda init bash
 
-      # Step 4: Create and activate the environment
+      # Step 4: Install System Dependencies for Pillow
+      - name: Install System Dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libjpeg-dev zlib1g-dev
+
+      # Step 5: Create and activate the environment
       - name: Create and Activate Conda Environment
         run: |
           eval "$(conda shell.bash hook)"
           conda create -n py312aiwatermark python=3.12 -y
           conda activate py312aiwatermark
 
-      # Step 5: Run the setup script
+      # Step 6: Run the setup script
       - name: Run Setup Script
         run: |
           eval "$(conda shell.bash hook)"
           conda activate py312aiwatermark
           bash setup.sh
 
-      # Step 6: Download the LaMA model
+      # Step 7: Download the LaMA model
       - name: Download LaMA Model
         run: |
           eval "$(conda shell.bash hook)"
           conda activate py312aiwatermark
           iopaint download --model lama
 
-      # Step 7: Provide CLI usage example
+      # Step 8: Provide CLI usage example
       - name: CLI Usage Example
         run: |
           echo "To use the CLI, run the following command:"
